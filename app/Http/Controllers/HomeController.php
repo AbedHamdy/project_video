@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\video;
 use Illuminate\Http\Request;
 
-class VideoController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('user.views.video');
+        return view('user.views.home');
     }
 
     /**
@@ -34,7 +33,7 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(video $video)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class VideoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(video $video)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class VideoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, video $video)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(video $video)
+    public function destroy(string $id)
     {
         //
     }

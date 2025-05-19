@@ -1,0 +1,94 @@
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* أنيميشن fadeInUp لتعريف الحركة */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1.5s ease-in-out forwards; /* مدة 1.5 ثانية */
+    animation-delay: 0.8s; /* يبدأ بعد 0.8 ثانية */
+    opacity: 0; /* نبدأ مخفي */
+    margin-bottom: 0.5rem;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1.2s ease-in-out forwards;
+    animation-delay: 1.2s; /* يبدأ بعد 1.2 ثانية */
+    opacity: 0;
+    margin-bottom: 0.8rem;
+}
+
+.carousel-caption .btn {
+    font-size: 1rem;
+    padding: 10px 25px;
+    animation: fadeInUp 1.2s ease-in-out forwards;
+    animation-delay: 1.6s; /* يبدأ بعد 1.6 ثانية */
+    opacity: 0;
+}
+
+/* خلي الصورة تملى الشاشة وتكون مظبوطة */
+.carousel-item img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+
+/* إخفاء النص الأساسي للـ caption قبل الأنيميشن */
+.carousel-caption {
+    opacity: 1; /* خلي الـ caption نفسها مرئية */
+    transform: none;
+}
+
+/* ======= تعديلات الموبايل ======= */
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 15px 20px; /* زيادة الحشوة للموبايل */
+        text-align: center; /* توسيط النص */
+    }
+    
+    .carousel-caption h1 {
+        font-size: 2rem; /* حجم أصغر للعنوان */
+        animation-duration: 1s; /* سرعة الأنيميشن أسرع */
+        animation-delay: 0.5s; /* تأخير أقل */
+        margin-bottom: 0.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem; /* حجم أصغر للنص */
+        animation-duration: 1s;
+        animation-delay: 0.8s;
+        margin-bottom: 0.8rem;
+    }
+
+    .carousel-caption .btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+        animation-duration: 1s;
+        animation-delay: 1.1s;
+    }
+
+    .carousel-item img {
+        height: 50vh; /* تقليل ارتفاع الصورة عشان تناسب الموبايل */
+    }
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
