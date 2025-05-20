@@ -34,9 +34,10 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(video $video)
+    public function show()
     {
         //
+        return view('user.views.show_video');
     }
 
     /**

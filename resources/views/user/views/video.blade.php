@@ -129,9 +129,7 @@
 
         </div>
         
-        <div class="text-center mt-4">
-            <a href="#" class="btn btn-primary">عرض المزيد</a>
-        </div>
+        
     </section>
 
 

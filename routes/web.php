@@ -22,3 +22,5 @@ use App\Http\Controllers\VideoController;
 Route::get("/" , [HomeController::class, "index"])->name("home");
 
 Route::get("/video" , [VideoController::class, "index"])->name("video");
+
+Route::get("/video/1" , [VideoController::class, "show"])->name("show_video");

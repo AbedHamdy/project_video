@@ -81,6 +81,53 @@
         </div>
     </section>
 
+    <section class="container my-5">
+    <h2 class="text-center mb-4">فريق العمل</h2>
+    <div class="row justify-content-center g-4">
+
+        <!-- عضو الفريق الأول -->
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm text-center p-3">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mx-auto shadow mb-3" alt="أحمد علي" width="100" height="100">
+                <div class="card-body">
+                    <h5 class="card-title mb-1">أحمد علي</h5>
+                    <a href="https://www.facebook.com/ahmed.ali" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">
+                        <i class="bi bi-facebook me-1"></i> فيسبوك
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- عضو الفريق الثاني -->
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm text-center p-3">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mx-auto shadow mb-3" alt="سارة محمد" width="100" height="100">
+                <div class="card-body">
+                    <h5 class="card-title mb-1">سارة محمد</h5>
+                    <a href="https://www.facebook.com/sarah.mohamed" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">
+                        <i class="bi bi-facebook me-1"></i> فيسبوك
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- عضو الفريق الثالث -->
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm text-center p-3">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mx-auto shadow mb-3" alt="يوسف إبراهيم" width="100" height="100">
+                <div class="card-body">
+                    <h5 class="card-title mb-1">يوسف إبراهيم</h5>
+                    <a href="https://www.facebook.com/youssef.ibrahim" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">
+                        <i class="bi bi-facebook me-1"></i> فيسبوك
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
 
 
 @endsection
