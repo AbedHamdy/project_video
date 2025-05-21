@@ -5,6 +5,16 @@
 @section('user-content')
     <div class="container my-5">
         <div class="row g-4">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
 
             <!-- جزء الفيديو -->
             <div class="col-md-8">
@@ -29,33 +39,7 @@
                                         style="cursor:pointer; max-width: 100%; height: auto;">
                                 </a>
                             </div>
-
-                            {{-- <div class="card">
-                                <a href="{{ route('show_video', $relatedVideo->id) }}" class="d-flex align-items-center text-decoration-none text-dark">
-                                    <img src="{{ asset($relatedVideo->coverImage->image) }}" alt="Video thumbnail" width="100" class="rounded me-3">
-                                    <span>{{ $relatedVideo->title }}</span>
-                                </a>
-                            </div> --}}
                         @endforeach
-                        {{-- <div class="card">
-                            <a href="https://www.youtube.com/watch?v=ghi789" class="d-flex align-items-center text-decoration-none text-dark">
-                                <img src="https://img.youtube.com/vi/ghi789/mqdefault.jpg" alt="Video thumbnail" width="100" class="rounded me-3">
-                                <span>أساسيات اختبار الاختراق</span>
-                            </a>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.youtube.com/watch?v=xyz123" class="d-flex align-items-center text-decoration-none text-dark">
-                                <img src="https://img.youtube.com/vi/xyz123/mqdefault.jpg" alt="Video thumbnail" width="100" class="rounded me-3">
-                                <span>أشهر أدوات Kali Linux</span>
-                            </a>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.youtube.com/watch?v=xyz123" class="d-flex align-items-center text-decoration-none text-dark">
-                                <img src="https://img.youtube.com/vi/xyz123/mqdefault.jpg" alt="Video thumbnail" width="100" class="rounded me-3">
-                                <span>أشهر أدوات Kali Linux</span>
-                            </a>
-                        </div> --}}
-
                     </div>
                 </div>
             </div>
@@ -111,7 +95,7 @@
                 @foreach($video->comments as $comment)
                     <div class="mb-3 p-3 bg-white rounded shadow-sm">
                         <strong>{{ $comment->name }} من {{ $comment->country }}</strong>
-                        <p class="mb-0 text-muted">{{ $comment->content }}</p>
+                        <p class="mb-0 text-muted">{{ $comment->text }}</p>
                     </div>
                 @endforeach
             @else
@@ -138,19 +122,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('create_comment') }}" method="POST">
+                    @csrf 
                     <div class="mb-3">
-                        <label class="form-label">الاسم</label>
-                        <input type="text" class="form-control" placeholder="اكتب اسمك" required>
+                        <label for="name" class="form-label">الاسم</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="اكتب اسمك" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">الدولة</label>
-                        <input type="text" class="form-control" placeholder="الدولة" required>
+                        <label for="country" class="form-label">الدولة</label>
+                        <input type="text" id="country" name="country" class="form-control" placeholder="الدولة" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">التعليق</label>
-                        <textarea class="form-control" rows="4" placeholder="اكتب تعليقك هنا..." required></textarea>
+                        <label for="comment" class="form-label">التعليق</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="اكتب تعليقك هنا..." required></textarea>
                     </div>
+                    <input type="hidden" name="video_id" value="{{ $video->id }}">
                     <div class="text-end">
                         <button type="submit" class="btn btn-success px-4">إرسال</button>
                     </div>

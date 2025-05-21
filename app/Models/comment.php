@@ -9,6 +9,13 @@ class comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "name",
+        "country",
+        "text",
+        "video_id",
+    ];
+
     public function video()
     {
         return $this->belongsTo(Video::class);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
@@ -24,3 +25,5 @@ Route::get("/" , [HomeController::class, "index"])->name("home");
 Route::get("/video" , [VideoController::class, "index"])->name("video");
 
 Route::get("/video/{id}" , [VideoController::class, "show"])->name("show_video");
+
+Route::post("/comment/create" , [CommentController::class, "store"])->name("create_comment");

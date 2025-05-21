@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\comment;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateCommentRequest;
 
 class CommentController extends Controller
 {
@@ -26,9 +27,23 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateCommentRequest $request)
     {
-        //
+        $data = $request->validated();
+        // dd($data);
+        $comment = Comment::create([
+            "name" => $data["name"],
+            "country" => $data["country"],
+            "text" => $data["comment"],
+            "video_id" => $data["video_id"],
+        ]);
+
+        if(!$comment)
+        {
+            return redirect()->back()->with("error", "خطأ في اضافة التعليق");
+        }
+
+        return redirect()->back()->with("success", "تم اضافة التعليق بنجاح");
     }
 
     /**
