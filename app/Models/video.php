@@ -9,6 +9,15 @@ class video extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'link',
+        'title',
+        'description',
+        'feature',
+        'user_name',
+        'content'
+    ];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -16,12 +25,23 @@ class video extends Model
 
     public function coverImage()
     {
-        return $this->hasOne(Image::class)->where('type', 'cover');
+        return $this->hasOne(image::class)->where('type', 'cover');
     }
 
     public function contentImages()
     {
-        return $this->hasMany(Image::class)->where('type', 'content');
+        return $this->hasMany(image::class)->where('type', 'content');
     }
+
+    public function images()
+    {
+        return $this->hasMany(image::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
 }

@@ -12,7 +12,12 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('user.views.video');
+        $videos = video::with('coverImage')
+            ->orderBy('created_at', 'desc')
+            ->paginate();
+        // dd($videos);
+        
+        return view('user.views.video' , compact('videos'));
     }
 
     /**
@@ -34,10 +39,26 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($id)
     {
-        //
-        return view('user.views.show_video');
+        $video = video::with('coverImage' , "contentImages" , "comments" , "category")
+            ->where('id', $id)
+            ->first();
+        // dd($video);
+        
+        if (!$video) 
+        {
+            return redirect()->back()->with('error', 'Video not found');
+        }
+
+        $relatedVideos = Video::with('coverImage')
+            ->where('category_id', $video->category_id)
+            ->where('id', '!=', $video->id)
+            ->latest()
+            ->take(4)
+            ->get();
+        // dd($relatedVideos);
+        return view('user.views.show_video' , compact('video' , "relatedVideos"));
     }
 
     /**
