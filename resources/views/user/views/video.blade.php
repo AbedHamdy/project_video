@@ -21,7 +21,7 @@
                     <div class="col-md-4">
                         <a href="{{ route("show_video" , $video->id) }}" style="text-decoration: none; color: inherit;">
                             <div class="card h-100">
-                                <img src="{{ asset('storage/' . $video->coverImage->image) }}" class="card-img-top" alt="{{ $video->coverImage->image_alt }}">
+                                <img src="https://foundr.com/wp-content/uploads/2021/09/Best-online-course-platforms.png" class="card-img-top" alt="{{ $video->coverImage->image_alt }}">
                                 <div class="card-body">
                                     <h6 class="card-title">
                                         {{ $video->title }}
@@ -52,8 +52,8 @@
                 {{ $videos->links() }}
             </div>
         @endif
-        
-        
+
+
     </section>
 
 
