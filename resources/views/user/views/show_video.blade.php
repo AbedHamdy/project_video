@@ -34,8 +34,8 @@
                             <div id="video-container">
                                 {{-- عرض صورة الغلاف كبداية --}}
                                 <a href="javascript:void(0)" onclick="playVideo()">
-                                    <img src="{{ asset( $video->coverImage->path) }}" 
-                                        alt="{{ $video->coverImage->image_alt }}" 
+                                    <img src="{{ asset( $video->coverImage->path) }}"
+                                        alt="{{ $video->coverImage->image_alt }}"
                                         style="cursor:pointer; max-width: 100%; height: auto;">
                                 </a>
                             </div>
@@ -65,7 +65,7 @@
 
             <div class="content-text mb-4">
                 <p class="text-muted">
-                    {{ $video->content }}
+                    {{!! $video->content !!}}
                 </p>
             </div>
 
@@ -123,7 +123,7 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('create_comment') }}" method="POST">
-                    @csrf 
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">الاسم</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="اكتب اسمك" required>
@@ -151,8 +151,8 @@
     <script>
         function playVideo() {
             document.getElementById('video-container').innerHTML = `
-                <iframe 
-                    src="{{ $video->link }}?autoplay=1" 
+                <iframe
+                    src="{{ $video->link }}?autoplay=1"
                     title="{{ $video->title }}"
                     allow="autoplay"
                     allowfullscreen
