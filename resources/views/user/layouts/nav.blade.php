@@ -8,6 +8,7 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="{{ route("home") }}">الرئيسية</a>
                 <a class="nav-link" href="{{ route("video") }}">الفيديوهات</a>
+                <a class="nav-link" href="{{ route("login") }}">تسجيل الدخول</a>
             </div>
         </div>
     </div>

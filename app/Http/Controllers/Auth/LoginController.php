@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\LoginProcessRequest;
+
+class LoginController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('user.views.login');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * login Process.
+     */
+    public function loginProcess(LoginProcessRequest $request)
+    {
+        $credentials = $request->validated();
+        
+        if (auth()->attempt($credentials)) 
+        {
+            return redirect('dashboard')->with('success', 'Login successful');
+        }
+
+        return redirect()->back()->with('errorLogin', 'بيانات الدخول غير صحيحة');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
