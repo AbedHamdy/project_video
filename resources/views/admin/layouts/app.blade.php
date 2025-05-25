@@ -2,60 +2,61 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Admin Panel</title>
+        <title>@yield("title")</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!-- AdminLTE CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <style>
+            :root {
+                --gold: #C6A45C;
+                --beige: #F5F0E5;
+                --dark-brown: #8B7355;
+            }
+            body {
+                background-color: var(--beige);
+            }
+            .main-header {
+                background: linear-gradient(to right, var(--gold), var(--dark-brown)) !important;
+            }
+            .main-header .navbar-light .navbar-nav .nav-link {
+                color: white !important;
+            }
+            .main-sidebar {
+                background: linear-gradient(180deg, var(--dark-brown), var(--gold)) !important;
+            }
+            .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active {
+                background-color: rgba(255,255,255,0.2);
+            }
+            .brand-link {
+                border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+            }
+            .content-wrapper {
+                background-color: var(--beige);
+            }
+            .card {
+                border: none;
+                box-shadow: 0 4px 6px rgba(139, 115, 85, 0.1);
+            }
+            .card-title {
+                color: var(--dark-brown);
+            }
+            .main-footer {
+                background-color: var(--dark-brown);
+                color: white;
+                border-top: 1px solid var(--gold);
+            }
+        </style>
     </head>
     <body class="hold-transition sidebar-collapse">
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Toggle Sidebar Button -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-                </li>
-            </ul>
-        </nav>
+        @include("admin.layouts.navbar")
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <span class="brand-text font-weight-light">Admin Panel</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>Home</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-video"></i>
-                                <p>Create Video</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>Create Major</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+        @include("admin.layouts.sidebar")
 
         <!-- Content Wrapper -->
         <div class="content-wrapper">
@@ -66,17 +67,10 @@
             </section>
         </div>
 
-        <!-- Footer -->
-        <footer class="main-footer text-center">
-            <strong>&copy; {{ date('Y') }} Admin Panel</strong>
-        </footer>
+        @include("admin.layouts.footer")
 
     </div>
 
-    <!-- jQuery (ضروري) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- AdminLTE JS -->
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-    
+    @include("admin.layouts.script")
     </body>
 </html>

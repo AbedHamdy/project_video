@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Amin\AdminController;
+// use App\Http\Controllers\Amdin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -33,7 +34,8 @@ Route::post("/comment/create" , [CommentController::class, "store"])->name("crea
 Route::get("/login" , [LoginController::class, "index"])->name("login");
 Route::post("/login-process" , [LoginController::class, "loginProcess"])->name("login_process");
 
-Route::get("/dashboard" , [AdminController::class, "index"])->name("dashboard");
+// Route::get("/dashboard" , [AdminController::class, "index"])->name("dashboard");
+Route::get("/dashboard" , [DashboardController::class, "index"])->name("dashboard");
 
 Route::get("/videos/create" , [VideoController::class, "create"])->name("create_video");
 

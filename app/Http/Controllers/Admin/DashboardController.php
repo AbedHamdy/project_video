@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Amin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\video;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.views.dashboard');
+        $videoCount = video::count();
+
+        return view('admin.views.dashboard' , compact("videoCount"));
     }
 
     /**
